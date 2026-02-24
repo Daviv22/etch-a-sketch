@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 header {
     text-align: center;
 }
@@ -5,16 +10,22 @@ header {
 main {
     display: flex;
     height: 100vh;
-    flex-flow: row-reverse;
 }
 
 .painel-direito {
+    width: 100%;
+    background-color: rgb(221, 207, 136);
+
+}
+
+.painel-esquerdo {
     background-color: rgb(144, 4, 4);
     width: 200px;
     height: 100%;
 }
 
-.painel-esquerdo {
-    background-color: rgb(221, 207, 136);
-    width: 100%;
+.tela {
+    width: 50px;
+    height: 50px;
+    background-color: white;
 }
