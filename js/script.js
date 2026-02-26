@@ -1,6 +1,8 @@
 const tela = document.querySelector(".tela");
 
 let seletorTamanho = document.getElementById('sizeInput')
+let color = 'red';
+let isPainting = false;
 
 function criadorDeGrid(tamanho) {
     tela.innerHTML = "";
@@ -11,8 +13,26 @@ function criadorDeGrid(tamanho) {
         const quadradinho = document.createElement("div");
         quadradinho.classList.add("quadradinho");
         tela.appendChild(quadradinho);
-
     }
+}
+
+function startPainting (e) {
+    isPainting = true;
+    paintCell(e.target)
+}
+
+function paint(e) {
+    if (!isPainting) return
+    paintCell(e.target)
+}
+
+function stopPainting() {
+    isPainting = false
+}
+
+function paintCell(target) {
+    if (!target.classList.contains('quadradinho')) return
+    target.style.backgroundColor = color;
 }
 
 seletorTamanho.addEventListener('input', function () {
@@ -22,6 +42,10 @@ seletorTamanho.addEventListener('input', function () {
 seletorTamanho.addEventListener('change', function () {
     criadorDeGrid(seletorTamanho.value);
 })
+
+tela.addEventListener('pointerdown', startPainting)
+tela.addEventListener('pointermove', paint)
+document.addEventListener('pointerup', stopPainting)
 
 window.onload = function () {
     criadorDeGrid(seletorTamanho.value);
