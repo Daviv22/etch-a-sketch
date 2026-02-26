@@ -16,7 +16,6 @@ function criadorDeGrid(tamanho) {
 }
 
 tamanho.addEventListener('input', function () {
-    const sizeNumber = document.getElementById("sizeNumber")
-        .textContent = `${tamanho.value} x ${tamanho.value}`
+    document.getElementById("sizeNumber").textContent = `${tamanho.value} x ${tamanho.value}`
     criadorDeGrid(tamanho.value)
 });
