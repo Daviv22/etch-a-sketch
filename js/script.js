@@ -3,6 +3,7 @@ const tela = document.querySelector(".tela");
 let tamanho = document.getElementById('sizeInput')
 
 function criadorDeGrid(tamanho) {
+    tela.innerHTML = "";
     tela.style.gridTemplateColumns = `repeat(${tamanho}, 1fr)`;
     tela.style.gridTemplateRows = `repeat(${tamanho}, 1fr)`;
 
