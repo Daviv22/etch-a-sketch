@@ -22,3 +22,7 @@ seletorTamanho.addEventListener('input', function () {
 seletorTamanho.addEventListener('change', function () {
     criadorDeGrid(seletorTamanho.value);
 })
+
+window.onload = function () {
+    criadorDeGrid(seletorTamanho.value);
+}
