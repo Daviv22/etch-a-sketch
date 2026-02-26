@@ -1,6 +1,6 @@
 const tela = document.querySelector(".tela");
 
-let tamanho = document.getElementById('sizeInput')
+let seletorTamanho = document.getElementById('sizeInput')
 
 function criadorDeGrid(tamanho) {
     tela.innerHTML = "";
@@ -15,7 +15,10 @@ function criadorDeGrid(tamanho) {
     }
 }
 
-tamanho.addEventListener('input', function () {
-    document.getElementById("sizeNumber").textContent = `${tamanho.value} x ${tamanho.value}`
-    criadorDeGrid(tamanho.value)
+seletorTamanho.addEventListener('input', function () {
+    document.getElementById("sizeNumber").textContent = `${seletorTamanho.value} x ${seletorTamanho.value}`;
 });
+
+seletorTamanho.addEventListener('change', function () {
+    criadorDeGrid(seletorTamanho.value);
+})
