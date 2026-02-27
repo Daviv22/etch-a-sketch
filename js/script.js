@@ -2,10 +2,11 @@ const tela = document.querySelector(".tela");
 
 let seletorTamanho = document.getElementById('sizeInput');
 let colorSelector = document.getElementById('colorSelector');
-let color = 'red';
+let color = document.getElementById('colorSelector').value;
 let isPainting = false;
 
 const eraserMode = document.getElementById('borracha-btn')
+const colorMode = document.getElementById('color-btn')
 
 function criadorDeGrid(tamanho) {
     tela.innerHTML = "";
@@ -52,6 +53,10 @@ colorSelector.addEventListener('input', function (e) {
 
 eraserMode.addEventListener('click', function () {
     color = 'white';
+})
+
+colorMode.addEventListener('click', function () {
+    color = document.getElementById('colorSelector').value;
 })
 
 tela.addEventListener('pointerdown', startPainting)
