@@ -5,6 +5,8 @@ let colorSelector = document.getElementById('colorSelector');
 let color = 'red';
 let isPainting = false;
 
+const eraserMode = document.getElementById('borracha-btn')
+
 function criadorDeGrid(tamanho) {
     tela.innerHTML = "";
     tela.style.gridTemplateColumns = `repeat(${tamanho}, 1fr)`;
@@ -46,6 +48,10 @@ seletorTamanho.addEventListener('change', function () {
 
 colorSelector.addEventListener('input', function (e) {
     color = e.target.value;
+})
+
+eraserMode.addEventListener('click', function () {
+    color = 'white';
 })
 
 tela.addEventListener('pointerdown', startPainting)
