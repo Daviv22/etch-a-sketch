@@ -1,6 +1,7 @@
 const tela = document.querySelector(".tela");
 
-let seletorTamanho = document.getElementById('sizeInput')
+let seletorTamanho = document.getElementById('sizeInput');
+let colorSelector = document.getElementById('colorSelector');
 let color = 'red';
 let isPainting = false;
 
@@ -41,6 +42,10 @@ seletorTamanho.addEventListener('input', function () {
 
 seletorTamanho.addEventListener('change', function () {
     criadorDeGrid(seletorTamanho.value);
+})
+
+colorSelector.addEventListener('input', function (e) {
+    color = e.target.value;
 })
 
 tela.addEventListener('pointerdown', startPainting)

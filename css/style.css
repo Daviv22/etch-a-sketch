@@ -37,6 +37,6 @@ main {
     flex-direction: column;
 }
 
-input[type=range] {
-
+input {
+    margin: 15px 0;
 }
