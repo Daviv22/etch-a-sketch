@@ -7,6 +7,7 @@ let isPainting = false;
 
 const eraserMode = document.getElementById('borracha-btn')
 const colorMode = document.getElementById('color-btn')
+const clearButton = document.getElementById('clear-btn')
 
 function criadorDeGrid(tamanho) {
     tela.innerHTML = "";
@@ -57,6 +58,10 @@ eraserMode.addEventListener('click', function () {
 
 colorMode.addEventListener('click', function () {
     color = document.getElementById('colorSelector').value;
+})
+
+clearButton.addEventListener('click', function () {
+    criadorDeGrid(seletorTamanho.value);
 })
 
 tela.addEventListener('pointerdown', startPainting)
