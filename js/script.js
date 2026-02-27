@@ -4,6 +4,7 @@ let seletorTamanho = document.getElementById('sizeInput');
 let colorSelector = document.getElementById('colorSelector');
 let color = document.getElementById('colorSelector').value;
 let isPainting = false;
+let isColorModeActive = true;
 
 const eraserMode = document.getElementById('borracha-btn')
 const colorMode = document.getElementById('color-btn')
@@ -40,6 +41,27 @@ function paintCell(target) {
     target.style.backgroundColor = color;
 }
 
+function changeStyleButton () {
+    if (isColorModeActive) {
+        isColorModeActive = false;
+
+        eraserMode.style.backgroundColor = '#0a6610';
+        eraserMode.style.color = 'white';
+
+        colorMode.style.backgroundColor = '#fff';
+        colorMode.style.color = '#c0392b';
+
+    } else {
+        isColorModeActive = true;
+
+        colorMode.style.backgroundColor = '#0a6610';
+        colorMode.style.color = 'white';
+
+        eraserMode.style.backgroundColor = '#fff';
+        eraserMode.style.color = '#c0392b';
+    }
+}
+
 seletorTamanho.addEventListener('input', function () {
     document.getElementById("sizeNumber").textContent = `${seletorTamanho.value} x ${seletorTamanho.value}`;
 });
@@ -52,12 +74,14 @@ colorSelector.addEventListener('input', function (e) {
     color = e.target.value;
 })
 
-eraserMode.addEventListener('click', function () {
+eraserMode.addEventListener('click', function (e) {
     color = 'white';
+    changeStyleButton();
 })
 
-colorMode.addEventListener('click', function () {
+colorMode.addEventListener('click', function (e) {
     color = document.getElementById('colorSelector').value;
+    changeStyleButton();
 })
 
 clearButton.addEventListener('click', function () {
