@@ -42,8 +42,7 @@ function paintCell(target) {
 }
 
 function changeStyleButton () {
-    if (isColorModeActive) {
-        isColorModeActive = false;
+    if (!isColorModeActive) {
 
         eraserMode.style.backgroundColor = '#0a6610';
         eraserMode.style.color = 'white';
@@ -52,10 +51,10 @@ function changeStyleButton () {
         colorMode.style.color = '#c0392b';
 
     } else {
-        isColorModeActive = true;
 
         colorMode.style.backgroundColor = '#0a6610';
         colorMode.style.color = 'white';
+
 
         eraserMode.style.backgroundColor = '#fff';
         eraserMode.style.color = '#c0392b';
@@ -74,14 +73,16 @@ colorSelector.addEventListener('input', function (e) {
     color = e.target.value;
 })
 
-eraserMode.addEventListener('click', function (e) {
+eraserMode.addEventListener('click', function () {
     color = 'white';
-    changeStyleButton();
+    isColorModeActive = false;
+    !isColorModeActive && changeStyleButton();
 })
 
-colorMode.addEventListener('click', function (e) {
+colorMode.addEventListener('click', function () {
     color = document.getElementById('colorSelector').value;
-    changeStyleButton();
+    isColorModeActive = true
+    isColorModeActive && changeStyleButton()
 })
 
 clearButton.addEventListener('click', function () {
